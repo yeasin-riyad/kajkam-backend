@@ -7,6 +7,7 @@ import { notFoundHandler } from "./middlewares/not-found";
 import { globalErrorHandler } from "./middlewares/global-error";
 import authRoutes from "./modules/auth/auth.routes";
 import serviceRoutes from "./modules/service/service.routes";
+import orderRoutes from "./modules/order/order.route";
 
 const app: Application = express();
 
@@ -29,6 +30,7 @@ app.get("/", (req: Request, res: Response) => {
 // 1. All your actual API Routes go here
 app.use("/api/auth", authRoutes);
 app.use("/api/service", serviceRoutes);
+app.use("/api/order", orderRoutes);
 
 // 2. ⚠️ THE NOT FOUND MIDDLEWARE (Catches anything that didn't match above)
 app.use(notFoundHandler);
